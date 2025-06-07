@@ -1,0 +1,56 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow" style="min-width: 350px; max-width: 400px; width: 100%;">
+    <div class="text-center mb-4">
+      <img src="assets/img/logo1.png" alt="Logo" width="100" />
+      <h4 class="mt-2">User Login</h4>
+    </div>
+    <div class="alert alert-danger" *ngIf="loginFailed">
+     username or password is incorrect
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
+
+      <div class="mb-3">
+        <input type="text"
+         class="form-control"
+          id="usernameId" 
+          placeholder="Enter your userName"
+          formControlName="userName" />
+      </div>
+
+       <small class="text-danger" 
+        *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched">
+           Username is required.
+       </small>
+
+      <small class="text-danger" 
+        *ngIf="loginForm.get('userName')?.errors?.['pattern']">
+         Username must contain at least 12 alphabetical characters.
+      </small>
+
+
+      <div class="mb-3">
+        <input type="password"
+         class="form-control"
+          id="passwordId" 
+          placeholder="Enter your password" 
+          formControlName="passWord"/>
+      </div>
+       <small class="text-danger" 
+  *ngIf="loginForm.get('passWord')?.invalid && loginForm.get('passWord')?.touched">
+    passWord is required.
+</small>
+
+       <small class="text-danger" 
+  *ngIf="loginForm.get('passWord')?.errors?.['pattern']">
+      Password must contain:
+    <br>• at least one uppercase letter,
+    <br>• at least one digit,
+    <br>• at least one special character (= ? ; , !),
+    <br>• and be at least 12 characters long.
+</small>
+
+      <button type="submit" class="btn btn-primary w-100">Log in</button>
+    </form>
+  </div>
+</div>
+

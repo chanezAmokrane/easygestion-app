@@ -1,0 +1,82 @@
+<div class="container form-wrapper">
+  <div class="custom-card">
+    <div class="text-center mb-4">
+      <h4 class="mt-2">Add Product</h4>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="invalidForm">
+         One or more fields are invalid. Please correct them before submitting.
+    </div>
+<form [formGroup]="formAddProduct" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+    
+      <input type="text" class="form-control" id="label" placeholder="Enter label" 
+      formControlName="label" />
+          <small class="text-danger" *ngIf="formAddProduct.get('label')?.invalid && formAddProduct.get('label')?.touched">
+      Label is required. 
+    </small>
+<small class="text-danger"
+  *ngIf="formAddProduct.get('label')?.errors?.['pattern'] && formAddProduct.get('label')?.touched">
+  Label must contain at least 13 alphabetical characters.
+</small>
+    </div>
+
+
+
+
+    <div class="col-md-6 mb-3">
+    
+      <select class="form-control" id="typeId" formControlName="type">
+        <option value="">-- Select a type --</option>
+      <option value="Skincare">Skincare</option>
+      <option value="Makeup">Makeup</option>
+      <option value="Haircare">Haircare</option>
+      <option value="Bodycare">Bodycare</option>
+      <option value="Nailcare">Nailcare</option>
+      </select>
+        <small class="text-danger" *ngIf="formAddProduct.get('type')?.invalid && formAddProduct.get('type')?.touched">
+      Type is required. 
+    </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+ 
+      <input class="form-control"       
+      id="price" 
+      placeholder="Enter price" formControlName="price" />
+
+    <small class="text-danger" *ngIf="formAddProduct.get('price').invalid && formAddProduct.get('price').touched">
+        Price is required.
+    </small>
+    <small class="text-danger" *ngIf="formAddProduct.get('price').errors?.['pattern'] && formAddProduct.get('price').touched">
+
+    Enter a valid number with up to 2 decimal places.
+    </small>
+    </div>
+
+
+    <div class="col-md-6 mb-3">
+ <input 
+       class="form-control"
+       id="QuantityId"
+       placeholder="Enter quantity"
+       formControlName="stockQuantity" />
+        <small class="text-danger" *ngIf="formAddProduct.get('stockQuantity').invalid && formAddProduct.get('stockQuantity').touched">
+        Quantity is required.
+    </small>
+    </div>
+  
+  </div>
+
+  <div class="text-end mb-3">
+    <button type="submit" class="custom-btn">Add</button>
+  </div>
+</form>
+
+  </div>
+</div>
+

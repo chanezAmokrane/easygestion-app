@@ -1,0 +1,38 @@
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+.custom-card {
+
+  max-width: 600px;
+  padding: 1rem;
+border-radius: 8px;
+background-color: #a5c0ff; 
+border-color: #3B82F6;  
+
+ 
+
+}
+
+
+
+.custom-btn {
+background-color: #60A5FA;  
+border-color: #60A5FA;
+color: white;
+
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #b7c7e6; 
+}

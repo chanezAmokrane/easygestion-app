@@ -1,0 +1,21 @@
+
+
+
+<div class="col-10 vh-100 d-flex flex-column ">
+ 
+    <app-add-order (orderAdded)="OnOrderAdded($event)" [orderToEdit]="selectedOrderToEdit" ></app-add-order>
+
+
+
+  <div class="flex-grow-1 overflow-auto d-flex justify-content-center">
+   
+<app-orders-list [orders]="ordersList"   
+(orderEdited)="OnOrderEdit($event)" 
+(orderDeleted)="OnOrderDelete($event)"
+
+></app-orders-list>
+
+
+  </div>
+
+</div>

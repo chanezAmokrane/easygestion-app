@@ -1,0 +1,16 @@
+<div class="col-10 vh-100 d-flex flex-column ">
+ 
+    <app-add-product
+      (productAdded)="onProductAdded($event)"
+      [productToEdit]="selectedProductToEdit">
+    </app-add-product>
+
+
+
+    <app-product-list
+      [products]="productList"
+      (productEdit)="onProductEdit($event)">
+    </app-product-list>
+
+
+</div>

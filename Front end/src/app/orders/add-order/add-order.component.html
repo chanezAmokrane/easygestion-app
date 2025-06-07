@@ -1,0 +1,73 @@
+<div class="container form-wrapper">
+  <div class="custom-card">
+    <div class="text-center mb-4">
+      <h4 class="mt-2">Add Order</h4>
+    </div>
+<div class="alert alert-danger" *ngIf="invalidQuantity">
+   Not enough stock available.
+    </div>
+    <div class="alert alert-danger" *ngIf="invalidForm">
+         One or more fields are invalid. Please correct them before submitting.
+    </div>
+<form [formGroup]="formAddOrder" (ngSubmit)="onSubmit()">
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+  
+      <input type="text" class="form-control" id="label" placeholder="Enter clientName" 
+      formControlName="clientName" />
+          <small class="text-danger" *ngIf="formAddOrder.get('clientName')?.invalid && formAddOrder.get('clientName')?.touched">
+      clientName is required. 
+    </small>
+
+    </div>
+
+
+
+
+    <div class="col-md-6 mb-3">
+      
+      <select class="form-control" id="productId" formControlName="productId">
+        <option value="">-- Select a product --</option>
+    <option *ngFor="let product of productList" [value]="product.productId">{{ product.label }}</option>
+  </select>
+        <small class="text-danger" *ngIf="formAddOrder.get('productId')?.invalid && formAddOrder.get('productId')?.touched">
+      product is required. 
+    </small>
+    </div>
+  </div>
+
+  
+  <div class="row">
+   <div class="col-md-6 mb-3">
+  <input 
+    type="date" 
+    class="form-control" 
+    id="date" 
+    placeholder="Select date" 
+    formControlName="date"
+  />
+
+  <small class="text-danger" *ngIf="formAddOrder.get('date').invalid && formAddOrder.get('date').touched">
+    Date is required.
+  </small>
+</div>
+
+    
+    <div class="col-md-6 mb-3">
+      <input class="form-control" id="QuantityId" formControlName="quantity" placeholder="Enter quantity" />
+    
+        <small class="text-danger" *ngIf="formAddOrder.get('quantity').invalid && formAddOrder.get('quantity').touched">
+        Quantity is required.
+    </small>
+    </div>
+  </div>
+
+  <div class="text-end mb-3">
+    <button type="submit" class="custom-btn">Add</button>
+  </div>
+</form>
+
+  </div>
+</div>
+

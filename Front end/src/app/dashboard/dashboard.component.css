@@ -1,0 +1,25 @@
+  body, html, .container, .container-fluid {
+    margin: 0;
+    padding: 10;
+    height: 100%;
+  }
+
+
+.col-2 {
+  height: 100vh;
+  overflow: hidden;
+ background: linear-gradient(to bottom, #001f3f, #7FDBFF);
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  color: white;
+  font-size: 16px;
+}

@@ -43,6 +43,5 @@ Connexion avec MySQL via Spring Data JPA, avec mapping des entités.
 Gestion simple des erreurs pour éviter les crashs et informer l’utilisateur.
 
 ### 8. Expérience utilisateur
-Des **messages de confirmation** et **messages d’erreur** sont affichés pour informer l’utilisateur après chaque action (ajout, modification, suppression...). Cela améliore l’interaction et la clarté lors de l’utilisation de l’application.
-
+Des **messages d’erreur** sont affichés pour guider l’utilisateur lorsque des problèmes surviennent lors de l’ajout, de la modification ou de la suppression d’un produit ou d’une commande.
 
